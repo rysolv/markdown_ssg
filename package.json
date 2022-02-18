@@ -4,7 +4,7 @@
 	"description": "Stupid simple static site generator with markdown",
 	"main": "index.js",
 	"scripts": {
-		"start": "node index.js"
+		"build": "node index.js"
 	},
 	"repository": {
 		"type": "git",

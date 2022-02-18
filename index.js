@@ -3,30 +3,30 @@ const marked = require('marked');
 
 const siteName = 'Rysolv';
 const baseUrl = 'https://rysolv.com/blog';
-const directory = './src';
-const target = './build';
-const sitemap = [
-	'<?xml version="1.0" encoding="UTF-8"?>',
-	'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.google.com/schemas/sitemap/0.84 https://www.google.com/schemas/sitemap/0.84/sitemap.xsd">',
-];
+const [today] = new Date().toISOString().split('T');
+const sitemap = [];
 
 async function build() {
-	const files = await fs.readdir(directory);
+	const files = await fs.readdir('./src');
 	for (const file of files) {
 		// Take first part of file name for html name (this will be the url)
 		const [path] = file.split('.');
 
 		// Read Markdown and generate HTML
-		const data = await fs.readFile(`${directory}/${file}`, 'utf8');
+		const data = await fs.readFile(`./src/${file}`, 'utf8');
 		const html = generateHtml(data, path);
 
 		// Write HTML to file
-		await fs.writeFile(`${target}/${path}.html`, html);
+		await fs.writeFile(`./build/${path}.html`, html);
 	}
 	// Write sitemap.xml to file
 	await fs.writeFile(
-		`${target}/sitemap.xml`,
-		[...sitemap, '</urlset>'].join('')
+		`./build/sitemap.xml`,
+		[
+			'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.google.com/schemas/sitemap/0.84 https://www.google.com/schemas/sitemap/0.84/sitemap.xsd">',
+			...sitemap,
+			'</urlset>',
+		].join('')
 	);
 }
 
@@ -50,22 +50,21 @@ function generateHtml(data, path) {
 
 	// Push articles to sitemap
 	sitemap.push(
-		`<url><loc>${metaObj.url}</loc><lastmod>${metaObj.date}</lastmod></url>`
+		`<url><loc>${metaObj.url || ''}</loc><lastmod>${
+			metaObj.date || today
+		}</lastmod></url>`
 	);
 
 	return `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-        ${metaTags}
-        <link rel="stylesheet" href="style.css">
-        <title>${metaObj.title}</title>
-        </head>
-        <body>
-        ${parsed}
-        </body>
-        </html>
-    `;
+		<!DOCTYPE html>
+		<html lang="en">
+		${metaTags}
+		<link rel="stylesheet" href="style.css">
+		<title>${metaObj.title}</title>
+		</head>
+		<body>${parsed}</body>
+		</html>
+	`;
 }
 
 function generateMetaTags({ description, image, title, url }) {

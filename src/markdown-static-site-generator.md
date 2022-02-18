@@ -1,12 +1,12 @@
 title: Markdown Static Site Generator
-description: A stupid simple static site generator for markdown
+description: An ultra minimal static site generator
 image: https://compassionate-saha-53a9e6.netlify.app/assets/markdown-to-html.png
 date: 2022-02-18
 @@@
 
 ![Markdown to HTMl](./assets/markdown-to-html.png)
 
-# A ultra minimal static site generator for Markdown
+# An ultra minimal static site generator
 
 Yet another static site generator! Cause why not?
 
@@ -20,7 +20,7 @@ I needed to set up a static site generator for some blogging. And while plenty o
 index.js
 ```
 
-Pull down the ([source](https://github.com/rysolv/markdown_ssg)), and run `npm build` to:
+Pull down the ([source](https://github.com/rysolv/markdown_ssg)), and run **`npm build`** to:
 
 -   Build HTML from markdown & assets in the src directory
 -   Create meta tags for social links (standard, OpenGraph, Twitter)

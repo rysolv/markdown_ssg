@@ -14,10 +14,15 @@ body {
 	color: #444;
 }
 
+code {
+	font-weight: bold;
+}
+
 h1,
 h2,
 h3 {
 	line-height: 1.2;
+	margin: 4rem 0 2rem;
 }
 
 img {
@@ -36,8 +41,11 @@ pre {
 	font-family: monospace;
 	font-size: 1.4rem;
 	max-height: 80rem;
-	overflow-x: scroll;
 	padding: 1rem;
+}
+
+pre > code {
+	font-weight: 300 !important;
 }
 
 table,
@@ -49,7 +57,7 @@ td {
 	text-align: left;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: dark) {
 	body {
 		color: #ccc;
 		background: black;
@@ -67,4 +75,4 @@ td {
 	a:visited {
 		color: #ccf;
 	}
-}
+} */

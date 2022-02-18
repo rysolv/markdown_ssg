@@ -1,10 +1,12 @@
-![Markdown to HTMl](./assets/markdown-to-html.png)
+![Markdown to HTMl](./src/assets/markdown-to-html.png)
 
-# An ultra minimal static site generator
+# An ultra minimal static site generator ([live preview](https://compassionate-saha-53a9e6.netlify.app/markdown-static-site-generator))
 
 Yet another static site generator! Cause why not?
 
-I needed to set up a static site generator for some blogging. And while plenty of these exist ([Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.com/), [etc.](https://jamstack.org/generators/)), none were quite as minimal as I liked. So I built my own! In the interest of productivity, I dedicated one Friday, a 100 lines of JS to this task.
+I needed to set up a static site generator for some blogging. And while plenty of these exist ([Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.com/), [etc.](https://jamstack.org/generators/)), none were quite as minimal as I liked. So I built my own!
+
+It uses one dependency ([marked](https://www.npmjs.com/package/marked)), so not totally minimal. But all the build logic lives in 100 lines. With half of the logic dedicated to the meta tags and sitmap generation.
 
 ```
 🗀 build
@@ -14,13 +16,23 @@ I needed to set up a static site generator for some blogging. And while plenty o
 index.js
 ```
 
-Pull down the ([source](https://github.com/rysolv/markdown_ssg)), and run **`npm build`** to:
+## Getting Started
 
--   Build HTML from markdown & assets in the src directory
--   Create meta tags for social links (standard, OpenGraph, Twitter)
--   Generate a `sitemap.xml`
+-   Create a new markdown file (or edit the `getting-started.md`) in the `src` folder
+-   Include any images you want to use in the `src/assets` folder
+-   Run `npm run build`
 
-It uses one dependency ([marked](https://www.npmjs.com/package/marked)), so not totally minimal. But all the build logic lives in 100 lines. With half of the logic dedicated to the meta tags and sitmap generation. The whole repo (including node_modules) adds up to 480kb.
+This create a `/build` directory, and populate it with HTML, CSS, and images from the `src` directory.
+
+The script also creates meta tags for social links (incl. OpenGraph & Twitter) and generates a `sitemap.xml`
+
+## Deploying to Netlify
+
+In the spirit of deploying this in an afternoon, I went with [Netlify](https://www.netlify.com/).
+
+Link to the `main` branch on the git repo, set the build step to `npm run build` and the publish directory to `build`.
+
+![netlify settings](./src/assets/netlify.png)
 
 ## Why markdown
 
@@ -94,11 +106,3 @@ It also generates a `sitemap.xml` of all the articles in the src directory.
     </url>
 </urlset>
 ```
-
-## Deploying to Netlify
-
-In the spirit of deploying this in an afternoon, I went with [Netlify](https://www.netlify.com/).
-
-Link to the `main` branch on the git repo, set the build step to `npm run build` and the publish directory to `build`.
-
-![netlify settings](./assets/netlify.png)

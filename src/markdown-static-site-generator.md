@@ -12,13 +12,21 @@ Yet another static site generator! Cause why not?
 
 I needed to set up a static site generator for some blogging. And while plenty of these exist ([Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.com/), [etc.](https://jamstack.org/generators/)), none were quite as minimal as I liked. So I built my own! In the interest of productivity, I dedicated one Friday, a 100 lines of JS to this task.
 
-## Markdown_SSG ([source](https://github.com/rysolv/markdown_ssg))
+```
+🗀 build
+🗀 src
+    🗀 assets
+    hello-world.md
+index.js
+```
 
--   Build html pages from markdown
--   Create meta tags for social links (Basic, OpenGraph, & Twitter)
+Pull down the ([source](https://github.com/rysolv/markdown_ssg)), and run `npm build` to:
+
+-   Build HTML from markdown & assets in the src directory
+-   Create meta tags for social links (standard, OpenGraph, Twitter)
 -   Generate a `sitemap.xml`
 
-It uses one dependency ([marked](https://www.npmjs.com/package/marked)), so not totally minimal. But all the build logic lives in 100 lines. With half of the logic dedicated to the meta tags and sitmap generation.
+It uses one dependency ([marked](https://www.npmjs.com/package/marked)), so not totally minimal. But all the build logic lives in 100 lines. With half of the logic dedicated to the meta tags and sitmap generation. The whole repo (including node_modules) adds up to 480kb.
 
 ## Why markdown
 
@@ -92,3 +100,9 @@ It also generates a `sitemap.xml` of all the articles in the src directory.
     </url>
 </urlset>
 ```
+
+## Deploying to Netlify
+
+In the spirit of deploying this in an afternoon, I went with (Netlify)[https://www.netlify.com/]. It was really simply to set up. I linked it to my `main` branch on the git repo, set the build step to `npm run build` and the publish directory to `build`
+
+![netlify settings](./assets/netlify.png)

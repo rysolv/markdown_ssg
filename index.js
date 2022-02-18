@@ -60,7 +60,7 @@ function generateHtml(data, path) {
 		<!DOCTYPE html>
 		<html lang="en">
 		${metaTags}
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="assets/style.css">
 		<title>${metaObj.title}</title>
 		</head>
 		<body>${parsed}</body>

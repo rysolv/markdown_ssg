@@ -29,15 +29,15 @@ p {
 }
 
 pre {
+	background-color: #2c2c2c;
+	border-radius: 0.25rem;
 	border: 0.1rem solid;
-	padding: 1rem;
+	color: white;
 	font-family: monospace;
 	font-size: 1.4rem;
-	border-radius: 0.25rem;
-	color: white;
-	background-color: #2c2c2c;
 	max-height: 80rem;
 	overflow-x: scroll;
+	padding: 1rem;
 }
 
 table,

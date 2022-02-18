@@ -1,7 +1,7 @@
-title: Markdown Static Site Generator
-description: An ultra minimal static site generator
-image: https://compassionate-saha-53a9e6.netlify.app/assets/markdown-to-html.png
-date: 2022-02-18
+title=Markdown Static Site Generator
+description=An ultra minimal static site generator
+image=https://compassionate-saha-53a9e6.netlify.app/assets/markdown-to-html.png
+date=2022-02-18
 @@@
 
 ![Markdown to HTMl](./assets/markdown-to-html.png)
@@ -54,10 +54,10 @@ To update meta tags, just include the relevant tags at the top of the markdown f
 (meta tags for this article)
 
 ```
-title: Markdown Static Site Generator
-description: A stupid simple static site generator for markdown
-image: ./assets/markdown-to-html.png
-date: 2022-02-18
+title = Markdown Static Site Generator
+description = A stupid simple static site generator for markdown
+image = ./assets/markdown-to-html.png
+date = 2022-02-18
 @ @ @
 ```
 

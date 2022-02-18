@@ -38,7 +38,7 @@ function generateHtml(data, path) {
 	// Convert Meta tags to object
 	const metaObj = meta.split(/\n/).reduce((acc, el) => {
 		if (el.length) {
-			const [key, value] = el.split(':');
+			const [key, value] = el.split('=');
 			acc[key] = value.trim();
 		}
 		return acc;

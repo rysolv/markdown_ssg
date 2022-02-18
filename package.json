@@ -1,0 +1,22 @@
+{
+	"name": "markdown_ssg",
+	"version": "1.0.0",
+	"description": "Stupid simple static site generator with markdown",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rysolv/markdown_ssg.git"
+	},
+	"author": "themanmaran",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/rysolv/markdown_ssg/issues"
+	},
+	"homepage": "https://github.com/rysolv/markdown_ssg#readme",
+	"dependencies": {
+		"marked": "^4.0.12"
+	}
+}

@@ -74,10 +74,10 @@ function generateMetaTags({ description, image, title, url }) {
 		<!-- Base meta tags -->
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="${description || ''}" />
 		<meta name="language" content="english" />
 		<meta name="title" content="${title || ''}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	`;
 	const openGraph = `
 		<!-- OpenGraph -->
@@ -85,13 +85,13 @@ function generateMetaTags({ description, image, title, url }) {
 		<meta property="og:image" content="${image}" />
 		<meta property="og:site_name" content="${siteName || ''}" />
 		<meta property="og:title" content=${title || ''} />
-		<meta property="og:type" content="website" />
+		<meta property="og:type" content="article" />
 		<meta property="og:url" content="${url || ''}" />
 	`;
 	const twitter = `
 		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:description" content="${description || ''}" />
-		<meta name="twitter:domain" content="${url || ''}" />
 		<meta name="twitter:image" content="${image || ''}" />
 		<meta name="twitter:title" content="${title || ''}" />
 	`;

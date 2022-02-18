@@ -31,6 +31,8 @@ pre {
 	border-radius: 0.25rem;
 	color: white;
 	background-color: #2c2c2c;
+	max-height: 30rem;
+	overflow-y: scroll;
 }
 
 table,

@@ -1,3 +1,9 @@
+html {
+	font-size: 62.5%;
+	min-height: 100%;
+	position: relative;
+}
+
 body {
 	max-width: 65rem;
 	margin: 4rem auto;
@@ -12,7 +18,6 @@ h1,
 h2,
 h3 {
 	line-height: 1.2;
-	margin: 1rem 0;
 }
 
 img {
@@ -44,7 +49,7 @@ td {
 	text-align: left;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
 	body {
 		color: #ccc;
 		background: black;

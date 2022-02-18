@@ -85,10 +85,9 @@ It also generates a `sitemap.xml` of all the articles in the src directory.
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.google.com/schemas/sitemap/0.84 https://www.google.com/schemas/sitemap/0.84/sitemap.xsd">
-    <link type="text/css" id="dark-mode" rel="stylesheet" href=""/>
     <url>
         <loc>https://rysolv.com/blog/getting-started.html</loc>
         <lastmod>2022-02-18</lastmod>
     </url>
-    </urlset>
+</urlset>
 ```

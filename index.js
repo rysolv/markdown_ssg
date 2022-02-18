@@ -77,7 +77,7 @@ function generateMetaTags({ description, image, title, url }) {
 		<meta name="description" content="${description || ''}" />
 		<meta name="language" content="english" />
 		<meta name="title" content="${title || ''}" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=1.0, user-scalable=2">	
 	`;
 	const openGraph = `
 		<!-- OpenGraph -->

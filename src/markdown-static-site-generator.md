@@ -103,6 +103,8 @@ It also generates a `sitemap.xml` of all the articles in the src directory.
 
 ## Deploying to Netlify
 
-In the spirit of deploying this in an afternoon, I went with (Netlify)[https://www.netlify.com/]. It was really simply to set up. I linked it to my `main` branch on the git repo, set the build step to `npm run build` and the publish directory to `build`
+In the spirit of deploying this in an afternoon, I went with [Netlify](https://www.netlify.com/).
+
+Link to the `main` branch on the git repo, set the build step to `npm run build` and the publish directory to `build`.
 
 ![netlify settings](./assets/netlify.png)

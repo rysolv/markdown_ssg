@@ -9,15 +9,17 @@ const sitemap = [];
 async function build() {
 	const files = await fs.readdir('./src');
 	for (const file of files) {
-		// Take first part of file name for html name (this will be the url)
-		const [path] = file.split('.');
+		if (file !== 'assets') {
+			// Take first part of file name for html name (this will be the url)
+			const [path] = file.split('.');
 
-		// Read Markdown and generate HTML
-		const data = await fs.readFile(`./src/${file}`, 'utf8');
-		const html = generateHtml(data, path);
+			// Read Markdown and generate HTML
+			const data = await fs.readFile(`./src/${file}`, 'utf8');
+			const html = generateHtml(data, path);
 
-		// Write HTML to file
-		await fs.writeFile(`./build/${path}.html`, html);
+			// Write HTML to file
+			await fs.writeFile(`./build/${path}.html`, html);
+		}
 	}
 	// Write sitemap.xml to file
 	await fs.writeFile(
@@ -31,7 +33,6 @@ async function build() {
 }
 
 function generateHtml(data, path) {
-	// Split meta/markdown at deliminator
 	const [meta, markdown] = data.split('@@@');
 
 	// Convert Meta tags to object

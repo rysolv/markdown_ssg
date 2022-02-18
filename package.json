@@ -4,7 +4,9 @@
 	"description": "Stupid simple static site generator with markdown",
 	"main": "index.js",
 	"scripts": {
-		"build": "node index.js"
+		"clean": "rm -rf ./build && mkdir build",
+		"pre-build": "cp -R src/assets build/assets",
+		"build": "npm run clean && npm run pre-build && node index.js"
 	},
 	"repository": {
 		"type": "git",

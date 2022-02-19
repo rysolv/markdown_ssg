@@ -42,8 +42,8 @@ pre {
 	font-family: monospace;
 	font-size: 1.4rem;
 	max-height: 80rem;
-	padding: 1rem;
 	overflow: auto;
+	padding: 1rem;
 }
 
 pre > code {

@@ -1,5 +1,6 @@
 const fs = require('fs').promises;
 const marked = require('marked');
+const header = require('./header');
 
 const siteName = 'Rysolv';
 const baseUrl = 'https://rysolv.com/blog';
@@ -63,7 +64,10 @@ function generateHtml(data, path) {
 		<link rel="stylesheet" href="assets/style.css">
 		<title>${metaObj.title}</title>
 		</head>
-		<body>${parsed}</body>
+		<body>
+		${header}
+		<article>${parsed}</article>
+		</body>
 		</html>
 	`;
 }

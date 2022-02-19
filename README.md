@@ -30,7 +30,14 @@ The script also creates standard metatags for social links (native, OpenGraph, T
 
 In the spirit of deploying this in an afternoon, I went with [Netlify](https://www.netlify.com/).
 
-Link to the `main` branch on the git repo, set the build step to `npm run build` and the publish directory to `build`.
+### Deploy steps
+
+-   Sign in to Netlify
+-   Select `Import an Existing project`
+-   Connect to a Git provider
+-   Select the repo
+-   Set the build step to `npm run build` and the publish directory to `/build`
+-   Deploy Site!
 
 ![netlify settings](./src/assets/netlify.png)
 

@@ -109,6 +109,13 @@ It also generates a `sitemap.xml` of all the articles in the src directory.
 
 In the spirit of deploying this in an afternoon, I went with [Netlify](https://www.netlify.com/).
 
-Link to the `main` branch on the git repo, set the build step to `npm run build` and the publish directory to `build`.
+### Deploy steps
+
+-   Sign in to Netlify
+-   Select `Import an Existing project`
+-   Connect to a Git provider
+-   Select the repo
+-   Set the build step to `npm run build` and the publish directory to `/build`
+-   Deploy Site!
 
 ![netlify settings](./assets/netlify.png)

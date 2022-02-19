@@ -62,6 +62,7 @@ function generateHtml(data, path) {
 		<html lang="en">
 		${metaTags}
 		<link rel="stylesheet" href="assets/style.css">
+		<link rel="icon" href="assets/favicon.ico" />
 		<title>${metaObj.title}</title>
 		</head>
 		<body>

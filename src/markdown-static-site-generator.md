@@ -32,11 +32,26 @@ index.js
 This creates a `/build` directory, and populates it with HTML, CSS, and images from the `src` directory.
 The script also creates standard metatags for social links (native, OpenGraph, Twitter) and generates a `sitemap.xml`
 
+## Deploying to Netlify
+
+In the spirit of deploying this in an afternoon, I went with [Netlify](https://www.netlify.com/).
+
+### Deploy steps
+
+-   Sign in to Netlify
+-   Select `Import an Existing project`
+-   Connect to a Git provider
+-   Select the repo
+-   Set the build step to `npm run build` and the publish directory to `/build`
+-   Deploy Site!
+
+![netlify settings](./assets/netlify.png)
+
 ## Why markdown
 
 Well I'm in a code editor all day anyway. I like the [syntax](https://www.markdownguide.org/basic-syntax/).
 
-And the indention is really nice. Especially when I want to provide code snippits. Which I do a lot of when I write tutorials. Since I'm staying in VS code the whole time I can just copy over snippits.
+Especially when I want to provide code snippits. Which I do a lot of when I write tutorials.
 
 ```
 // Convert Meta tags to object
@@ -48,6 +63,8 @@ const metaObj = meta.split(/\n/).reduce((acc, el) => {
     return acc;
 }, {});
 ```
+
+It's not perfect of course (poor image support, no built in spell-chech), but it gets the job done.
 
 ## Meta tags & Sitemap
 
@@ -104,18 +121,3 @@ It also generates a `sitemap.xml` of all the articles in the src directory.
     </url>
 </urlset>
 ```
-
-## Deploying to Netlify
-
-In the spirit of deploying this in an afternoon, I went with [Netlify](https://www.netlify.com/).
-
-### Deploy steps
-
--   Sign in to Netlify
--   Seleect `Import an Existing project`
--   Connect to a Git provider
--   Select the repo
--   Set the build step to `npm run build` and the publish directory to `/build`
--   Deploy Site!
-
-![netlify settings](./assets/netlify.png)

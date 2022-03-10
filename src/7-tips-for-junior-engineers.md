@@ -163,7 +163,9 @@ Your company will have a ton of different names for the job.
 
 > L1, L2, L3, L4, SWE I, SWE II, Junior Dev, Senior Dev, Tech Lead, Team Lead, Principal, Architect, etc.
 
-Now I'm not advocating that you start calling yourself [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds). Or only applying to Principal Engineering role. But you don't need to wrap _"Junior Engineer"_ around your whole professional identity. Of course you won't know all there is to know about programming. But neither does anyone else at your company!
+Now I'm not advocating that you start calling yourself [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds). Or only apply to Principal Engineer roles.
+
+But you don't need to wrap _*"Junior Engineer"*_ around your whole professional identity. Of course you won't know all there is to know about programming. But neither does anyone else at your company!
 
 &nbsp;
 

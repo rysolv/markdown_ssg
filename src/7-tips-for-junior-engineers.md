@@ -87,12 +87,14 @@ The specifics of reporting will depend on your company's workflow, but it never 
 
 Every company is going to be different here, as the "best git strategy" is still a fiercely debated topic.
 
+&nbsp;
+
 **Second**, brush up on git! You'll need it.
 
-Need to go work on another branch real quick? `git stash`
+Have a bunch of half finished work, but need to jump on another branch real quick? `git stash`
 
 ```
-// All all the current files and push it to the stash
+// Add all the current files and push it to the stash
 git add .
 git stash
 
@@ -108,7 +110,7 @@ Forgot to checkout a new branch and already committed to `main`?
 
 ```
 On branch main
-Your branch is 1 commit ahead of origin/main
+Your branch is 1 commit ahead of origin/main 🤦‍♂️
 
 // Create a new branch (WITHOUT the -b flag)
 git branch the-proper-branch

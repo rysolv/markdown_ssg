@@ -93,7 +93,7 @@ function generateMetaTags({ description, image, title, url }) {
 		<meta property="og:description" content="${description || ''}" />
 		<meta property="og:image" content="${image}" />
 		<meta property="og:site_name" content="${siteName || ''}" />
-		<meta property="og:title" content=${title || ''} />
+		<meta property="og:title" content="${title || ''}" />
 		<meta property="og:type" content="article" />
 		<meta property="og:url" content="${url || ''}" />
 	`;

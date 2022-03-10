@@ -41,6 +41,13 @@ h1 {
 	font-size: 3.5rem;
 }
 
+header {
+	display: flex;
+	padding: 2rem 12rem;
+	justify-content: space-between;
+	align-items: center;
+}
+
 img {
 	width: 100%;
 }
@@ -77,6 +84,10 @@ td {
 @media only screen and (max-width: 600px) {
 	body {
 		font-size: 1.6rem;
+	}
+
+	header {
+		padding: 0;
 	}
 }
 

@@ -1,5 +1,5 @@
 module.exports = `
-<header style="display: flex;padding: 2rem 12rem;justify-content: space-between;align-items: center;">
+<header>
     <a href="https://rysolv.com" style="text-decoration: inherit;">
         <svg id="logo" width="381" height="381" viewbox="0 0 381 381" fill="none" xmlns="http://www.w3.org/2000/svg"
             style="height: 4rem;display: inline-flex;width: auto;">

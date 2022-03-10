@@ -10,17 +10,20 @@ publish=true
 
 # Stop calling yourself a Junior Engineer
 
+<p style="text-align:center; font-style: italic; font-size: larger">Seven tips for <span style="text-decoration: line-through">Junior</span> Engineers</p>
+
 &nbsp;
 
 It happened! After months of studying data structures and cramming LeetCode problems you land that first dev job!
-Only to discover that rather than reversing linked lists, you're reviewing pull requests and tracking tickets in Jira.
+Only to discover that rather than _reversing linked lists_, you're reviewing pull requests and tracking tickets in Jira.
 
 &nbsp;
 
-In fact, the only linked-list you're likely to see is `Git`, and you never covered rebasing or all the weird branching strategies your company may use.
-It's a common culture shock when you pivot from `studying for a dev job` vs `working your first dev job`. And I constantly see developers reaching out for advice on navigating their first few months at a new job.
+In fact, the only linked-list you're likely to see is `Git`, and you never covered _rebasing_ or all the weird branching strategies your company may use.
 
-Take a breather. Remember, working your first dev job is _WAY_ easier than getting one. As far as advice goes, I've compiled a list of 7 habits that really help a new developer get up to speed.
+It's a common culture shock when you pivot from **studying for a dev job** vs **working your first dev job**. And I constantly see developers reaching out for advice on navigating their first few months at a new job.
+
+Take a breather. Remember, working your first dev job is _WAY_ easier than getting one. But to help smooth the transition, I've compiled a list of 7 habits that really help a new developer get up to speed.
 
 ### 1. Practice Asynchronous Communication
 
@@ -66,13 +69,13 @@ Try looking at your stories from a teammate or Project Manager's perspective.
 
 The specifics of reporting will depend on your company's workflow, but it never hurts to:
 
-1. Make your Pull Requests readable
+1. **Make your Pull Requests readable**
 
     - Describe the ticket, and your implementation.
     - Write better commit messages.
     - Include links to relevant code / blockers.
 
-2. Update Jira (or whatever task tool you use)
+2. **Update Jira (or whatever task tool you use)**
 
     - SCRUM tools are only as good as the data they're given. Keep your stories up to date, highlight any blockers, and give realistic time frames.
 
@@ -117,7 +120,9 @@ git reset HEAD~ --hard
 git checkout the-proper-branch
 ```
 
-Here's a great guide for common problems: [Oh Shit, Git!?!](https://ohshitgit.com/)
+Maybe take a few hours to peruse the official docs: https://git-scm.com/doc
+
+Or for emergencies, check out [Oh Shit, Git!?!](https://ohshitgit.com/)
 
 ### 5. Document your onboarding flow
 
@@ -138,6 +143,7 @@ And the next time your company hires someone, you'll be able to make their proce
 Don't underestimate your voice in planning/architecture decisions. You may not understand all the minutiae of the challenge at hand, but you help steer the conversation in the right direction.
 
 -   "Which users are affected by this bug?"
+-   "Does this need to be refactored right now?"
 -   "What is the smallest step we can take in the right direction?"
 
 If a solution sounds too complex, <i>maybe it is</i>? Spend enough time on a problem and you're likely to develop tunnel vision. Having a fresh set of eyes can be immensely helpful. So speak up!
@@ -153,8 +159,12 @@ This one is a bit subjective. But I see this question come up a lot:
 
 And I hate it. For me, this comes down to confidence, and the level of emphasis you place on your job title.
 
-Your organization probably has a ton of different names for the job.
+Your company will have a ton of different names for the job.
 
 > L1, L2, L3, L4, SWE I, SWE II, Junior Dev, Senior Dev, Tech Lead, Team Lead, Principal, Architect, etc.
 
-But you don't need to wrap _"Junior Engineer"_ around your whole professional identity. Of course you won't know all there is about programming. But neither does anyone else at your company!
+Now I'm not advocating that you start calling yourself [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds). Or only applying to Principal Engineering role. But you don't need to wrap _"Junior Engineer"_ around your whole professional identity. Of course you won't know all there is to know about programming. But neither does anyone else at your company!
+
+&nbsp;
+
+You've landed the job! The hard part is over. And a great way to advance from the Junior Engineer role, is to cross out the ~~Junior~~.

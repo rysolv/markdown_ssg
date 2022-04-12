@@ -39,7 +39,7 @@ module.exports = `
     <div id="links">
         <a class="externalLink" href="https://rysolv.com/signup?type=company"
             style="text-decoration: inherit;color: #153486;font-weight: 500;margin: 0 1rem;">Hire Engineers</a>
-        <a class="externalLink" href="https://rysolv.com/jobs"
+        <a class="externalLink" href="https://rysolv.com/apply"
             style="text-decoration: inherit;color: #153486;font-weight: 500;margin: 0 1rem;">Find Jobs</a>
     </div>
 </header>

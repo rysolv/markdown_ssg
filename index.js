@@ -2,6 +2,7 @@ const fs = require('fs').promises;
 const marked = require('marked');
 const header = require('./header');
 const author = require('./author');
+const shareLinks = require('./share');
 
 const siteName = 'Rysolv';
 const baseUrl = 'https://rysolv.com/blog';
@@ -70,6 +71,7 @@ function generateHtml(data, path) {
 		${header}
 		<article>
 		${parsed}
+		${shareLinks(metaObj.url, metaObj.title)}
 		${author}
 		</article>
 		</body>

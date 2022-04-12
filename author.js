@@ -1,5 +1,5 @@
 module.exports = `
-    <section id="author" style="display: flex; margin-top: 20rem">
+    <section id="author" style="display: flex; margin-top: 10rem">
         <img id="authorImage" src="./assets/tyler.JPG" style="height: 8rem;width: 8rem;border-radius: 50%;">
         <div id="authorContent" style="margin: 0;padding-left: 3rem; align-self:center">
             <h2 id="name" style="margin: 0;font-size: large;font-weight: 500;">Tyler Maran</h2>

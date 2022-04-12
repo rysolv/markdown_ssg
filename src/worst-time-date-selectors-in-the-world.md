@@ -1,4 +1,4 @@
-title=Top 10 worst Time/Date selectors
+title=The worst Date Selectors in the world
 description=Winners from the Rysolv Terrible UI Hackathon
 image=https://compassionate-saha-53a9e6.netlify.app/assets/stackendar.gif
 date=2022-04-12
@@ -88,3 +88,9 @@ The winner of this month's hackathon was [Geforce](https://github.com/Geforce132
 This is the first of a series of hackathons that we'll be hosting!
 
 Head over to https://github.com/rysolv/hackathon to sign up for the next one, or [Join us on Discord](https://discord.gg/kqt8RcVggN) for all sorts of software tomfoolery.
+
+### Have a late submission?
+
+Missed the hackathon, but have some terrible UI ideas? Just follow the submission instructions here: [terrible_ui_1](https://github.com/rysolv/hackathon/tree/main/submissions/terrible_ui_1).
+
+Create a Pull Request, we'll review and add your entry to this blog.

@@ -7,7 +7,7 @@ publish=true
 
 # The worst Date Selectors in the world
 
-The results of the [Terrible UI hackathon](https://github.com/rysolv/hackathon) are in! We challenged developes to build the worst Time/Date selectors possible. Here are our top picks!
+The results of the [Terrible UI hackathon](https://github.com/rysolv/hackathon) are in! We challenged developers to build the worst Time/Date selectors possible. Here are our top picks!
 
 ## Stackendar
 
@@ -81,16 +81,16 @@ Source: [GitHub](https://github.com/rysolv/hackathon/tree/main/submissions/terri
 
 ![trophy](./assets/trophy.jpg)
 
-The winner of this month's hackathon was [Geforce](https://github.com/Geforce132) with Stackendar! They'll be taking home this lovely 3D printed trophy.
-
-### Join the next one!
-
-This is the first of a series of hackathons that we'll be hosting!
-
-Head over to https://github.com/rysolv/hackathon to sign up for the next one, or [Join us on Discord](https://discord.gg/kqt8RcVggN) for all sorts of software tomfoolery.
+The winner of this month's hackathon was [Geforce](https://github.com/Geforce132) with [Stackendar](https://github.com/rysolv/hackathon/tree/main/submissions/terrible_ui_1/stackendar)! They'll be taking home this lovely 3D printed trophy.
 
 ### Have a late submission?
 
 Missed the hackathon, but have some terrible UI ideas? Just follow the submission instructions here: [terrible_ui_1](https://github.com/rysolv/hackathon/tree/main/submissions/terrible_ui_1).
 
 Create a Pull Request, we'll review and add your entry to this blog.
+
+### Join the next one!
+
+This is the first of a series of hackathons that we'll be hosting!
+
+Head over to https://github.com/rysolv/hackathon to sign up for the next one, or [Join us on Discord](https://discord.gg/kqt8RcVggN) for all sorts of software tomfoolery.

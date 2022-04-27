@@ -1,20 +1,20 @@
-title=Build a developer profile to get hired
-description=What you should (and should NOT) include in your developer profile
+title=How To Build A Simple Developer Portfolio To Get Hired
+description=Simple is better. Knowing how to make a functional developer portfolio is key to getting hired.
 image=https://compassionate-saha-53a9e6.netlify.app/assets/profile_example.png
 date=2022-04-26
 publish=true
 @@@
 
-# Building a profile to get hired
+# How To Build A Simple Developer Portfolio To Get Hired
 
 ![basic profile with fancy project](./assets/profile_example.png)
 
 ### TLDR:
 
 1. You have **less than 10 seconds** to stand out. Make it count.
-2. Keep your projects awesome and your profile simple
-3. No one is impressed by templates
-4. Avoid useless UI elements
+2. Keep your projects awesome and your profile simple.
+3. No one is impressed by templates.
+4. Avoid useless UI elements.
 
 There are lots of reasons to build a personal website. It's an opportunity for you to share your interests and creations with the world. And if you want to have a crazy colorful animated profile, then go ahead!
 
@@ -24,7 +24,7 @@ There are lots of reasons to build a personal website. It's an opportunity for y
 
 For most software engineers, the answer is no. And it's not always obvious that having a profile gives you an advantage over other applicants.
 
-Here's what a profile gives you:
+Here's what a portfolio gives you:
 
 1. A place for you to publish work (sites, blogs, designs, artwork, games, etc.).
 2. Easier to share than a resume. It's a lot easier to share a profile link than attach a resume to everything.
@@ -36,7 +36,7 @@ I think a lot of new developers want to use their profile to show off all the ne
 
 #### People have very limited attention spans
 
-Especially when reading through hundreds of applicants. Recruiters look at resumes for [~7 seconds on average](https://www.theladders.com/career-advice/why-do-recruiters-spend-only-7-4-seconds-on-resumes), and you should expect similar behaviour on your profile page.
+Especially when reading through hundreds of applicants. Recruiters look at resumes for [~7 seconds on average](https://www.theladders.com/career-advice/why-do-recruiters-spend-only-7-4-seconds-on-resumes), and you should expect similar behavior on your profile page.
 <br>
 <br>
 If that 7 seconds consists entirely of animations and elements flying onto screen as I scroll, I'll probably never get to the relevant details.
@@ -49,13 +49,15 @@ I see lots of developers trying to compensate for a lack of work experience with
 
 This right here beats 90% of dev profiles I have seen in terms of usability and functionality.
 
+<br>
+<br>
 It contains:
 
 -   A way to contact you / read your resume.
 -   One memorable sentence describing who you are & what you do.
 -   Links where I can learn more about you / your work.
 
-I would reach out to this developer, and I would be very interested to know thier thoughts on sourdough.
+I would reach out to this developer, and I would be very interested to know their thoughts on sourdough.
 
 ![basic profile example](./assets/basic_profile.png)
 
@@ -79,7 +81,7 @@ Pick _one or two_ high quality projects you've completed.
 
 -   Quality > quantity. This is _not_ the place to include the tic-tac-toe game you made in your bootcamp.
 -   Include a link to the live site.
--   If you include a repository links, make sure it has a README.
+-   If you include a repository link, make sure it has a README.
 
 > ✔ Built with Python/Django/React. Worked on a 10 person team.
 
@@ -129,13 +131,13 @@ Here is an example of properly formatted meta tags. Just copy paste this into yo
 
 #### Don't hijack the scroll bar
 
-Asides from the obvious lack of accessibility, this is just annoying. As many people have pointed out:
+Aside from the obvious lack of accessibility, this is just annoying. As many people have pointed out:
 
 -   [The Scroll Hijacking Usability Nightmare](https://www.envato.com/blog/scroll-hijacking/)
 -   [Scrolljacking — The Usability Nightmare?](https://medium.com/@paonecreative_87456/scrolljacking-the-usability-nightmare-2a5bbb4273d0)
 -   [Why Scroll Hijacking Destroys User Experience](https://buildcreate.com/why-scroll-hijacking-destroys-user-experience/)
 
-#### Don't add the typewritter effect
+#### Don't add the typewriter effect
 
 ![text typewriter effect](./assets/typewriter.gif)
 
@@ -145,7 +147,7 @@ Seriously. Just no. I shouldn't have to wait for it to type out all the titles y
 
 1. It's obvious that you're using a template. After a couple weeks of looking at dev profiles you've seen all the popular templates / YouTube tutorials.
 2. They're typically too flashy / animated to read.
-3. You blend in with everyone else who used the same template.
+3. You blend in with everyone else who uses the same template.
 
 #### If you do use a template, attribute the source!
 

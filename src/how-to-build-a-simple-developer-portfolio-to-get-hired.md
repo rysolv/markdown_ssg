@@ -34,6 +34,8 @@ Here's what a portfolio gives you:
 
 I think a lot of new developers want to use their profile to show off all the new CSS and JavaScript tricks they've learned. What they end up with is a flashy unusable nightmare of a site.
 
+The best User Interface is the one that accomplishes the task at hand. If the task is finding a job, then that's what you need to optimize for.
+
 #### People have very limited attention spans
 
 Especially when reading through hundreds of applicants. Recruiters look at resumes for [~7 seconds on average](https://www.theladders.com/career-advice/why-do-recruiters-spend-only-7-4-seconds-on-resumes), and you should expect similar behavior on your profile page.
@@ -45,12 +47,14 @@ If that 7 seconds consists entirely of animations and elements flying onto scree
 
 I see lots of developers trying to compensate for a lack of work experience with a flashier profile page. There is a place for awesome animations and unique designs. But it's not on your profile.
 
+#### Test it yourself
+
+Check out a tool like hotjar (https://www.hotjar.com). It's got a free trial, and you can see heatmaps of where someone clicks on your site.
+
 ### When I say simple, I mean simple:
 
 This right here beats 90% of dev profiles I have seen in terms of usability and functionality.
 
-<br>
-<br>
 It contains:
 
 -   A way to contact you / read your resume.
@@ -162,3 +166,19 @@ This doesn't tell me anything useful. You know how to use `npm`?
 I know these are used to make the page feel longer and more filled out. But all it does is give the user more noise to sort through. Don't be afraid of a short page!
 
 ![mis-attribution](./assets/skills_list.png)
+
+## Simple is better than complex
+
+It wasn't exactly written for UIs, but `The Zen of Python` says it best:
+
+```
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+...
+```

@@ -103,7 +103,7 @@ function generateHtml(data, path) {
 		<article>
 		${parsed}
 		${shareLinks(metaObj.url, metaObj.title)}
-		${author}
+		${author.generateHTML(!(argv.dontCompressImages || argv.dontGenerateWebp))}
 		</article>
 		</body>
 		</html>

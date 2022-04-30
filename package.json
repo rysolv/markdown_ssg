@@ -6,7 +6,7 @@
 	"scripts": {
 		"clean": "rm -rf ./build && mkdir build",
 		"pre-build": "node pre-process.js",
-		"build": "npm run clean && npm run pre-build && node index.js"
+		"build": "node build.js"
 	},
 	"repository": {
 		"type": "git",

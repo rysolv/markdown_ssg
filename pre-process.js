@@ -1,5 +1,6 @@
-const fse = require('fs-extra')
-const yargs = require('yargs/yargs')
+const fse = require('fs-extra');
+const yargs = require('yargs/yargs');
+const {compressableFormats} = require('./constants');
 
 const imagemin = require('imagemin');
 const imageminJpegoptim = require('imagemin-jpegoptim');
@@ -8,11 +9,8 @@ const imageminPngquant = require('imagemin-pngquant');
 const imageminWebp = require('imagemin-webp');
 // const imageminGifsicle = require('imagemin-gifsicle');
 
-const { hideBin } = require('yargs/helpers')
-const argv = yargs(hideBin(process.argv)).argv
-
-const compressableFormats = new Set(['jpg', 'JPG', 'png', 'PNG']);
-exports.compressableFormats = compressableFormats;
+const { hideBin } = require('yargs/helpers');
+const argv = yargs(hideBin(process.argv)).argv;
 
 function filterFunc(src, dest) {
     if (src === 'src/assets' || !compressableFormats.has(src.split('.').pop())) {
@@ -24,7 +22,7 @@ function filterFunc(src, dest) {
 async function preProcess() {
     if (!argv.dontCompressImages) {
         compressImages();
-        await fse.copy('src/assets', 'build/assets/', { filter: filterFunc })
+        await fse.copy('src/assets', 'build/assets/', { filter: filterFunc });
     } else {
         await fse.copy('src/assets', 'build/assets/');
     }

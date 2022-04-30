@@ -3,7 +3,10 @@ const marked = require('marked');
 const header = require('./header');
 const author = require('./author');
 const shareLinks = require('./share');
-const {compressableFormats} = require('./pre-process');
+const {compressableFormats} = require('./constants');
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers');
+const argv = yargs(hideBin(process.argv)).argv;
 
 const siteName = 'Rysolv';
 const baseUrl = 'https://rysolv.com/blog';
@@ -13,7 +16,11 @@ const sitemap = [];
 const renderer = {
 	image(href, title, text) {
 		let imageHrefArr = href.split('.');
-		if (!compressableFormats.has(imageHrefArr.pop())){
+		if (
+			argv.dontCompressImages ||
+			argv.dontGenerateWebp ||
+			!compressableFormats.has(imageHrefArr.pop())
+		){
 			return false;
 		}
 

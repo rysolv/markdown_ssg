@@ -3,25 +3,56 @@ const marked = require('marked');
 const header = require('./header');
 const author = require('./author');
 const shareLinks = require('./share');
+const {compressableFormats} = require('./constants');
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers');
+const argv = yargs(hideBin(process.argv)).argv;
 
 const siteName = 'Rysolv';
 const baseUrl = 'https://rysolv.com/blog';
 const [today] = new Date().toISOString().split('T');
 const sitemap = [];
 
+const renderer = {
+	image(href, title, text) {
+		let imageHrefArr = href.split('.');
+		if (
+			argv.dontCompressImages ||
+			argv.dontGenerateWebp ||
+			!compressableFormats.has(imageHrefArr.pop())
+		){
+			return false;
+		}
+
+		const titleStr = title ? `title="${title}"` : '';
+
+		return `
+			<picture>
+				<source srcset="${imageHrefArr.join('.')}.webp" type="image/webp">
+				<img src="${href}" alt="${text}" ${titleStr}>
+			</picture>
+		`;
+	}
+}
+marked.use({ renderer });
+
 async function build() {
 	const files = await fs.readdir('./src');
+
 	for (const file of files) {
 		if (file !== 'assets') {
 			// Take first part of file name for html name (this will be the url)
 			const [path] = file.split('.');
 
-			// Read Markdown and generate HTML
-			const data = await fs.readFile(`./src/${file}`, 'utf8');
-			const html = generateHtml(data, path);
+			// Check if file path valid. Helps with '.DS-Store' file
+			if (path) {
+				// Read Markdown and generate HTML
+				const data = await fs.readFile(`./src/${file}`, 'utf8');
+				const html = generateHtml(data, path);
 
-			// Write HTML to file
-			await fs.writeFile(`./build/${path}.html`, html);
+				// Write HTML to file
+				await fs.writeFile(`./build/${path}.html`, html);
+			}
 		}
 	}
 	// Write sitemap.xml to file
@@ -72,7 +103,7 @@ function generateHtml(data, path) {
 		<article>
 		${parsed}
 		${shareLinks(metaObj.url, metaObj.title)}
-		${author}
+		${author.generateHTML(!(argv.dontCompressImages || argv.dontGenerateWebp))}
 		</article>
 		</body>
 		</html>

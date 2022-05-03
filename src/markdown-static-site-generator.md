@@ -2,6 +2,7 @@ title=Markdown Static Site Generator
 description=An ultra minimal static site generator
 image=https://compassionate-saha-53a9e6.netlify.app/assets/markdown-to-html.png
 date=2022-02-18
+publish=true
 @@@
 
 ![Markdown to HTMl](./assets/markdown-to-html.png)

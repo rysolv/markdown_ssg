@@ -4,8 +4,9 @@ const header = require('./header');
 const author = require('./author');
 const shareLinks = require('./share');
 
-const siteName = 'Rysolv';
-const baseUrl = 'https://rysolv.com/blog';
+// Import values from config
+const { siteName, baseUrl } = require('./config.json');
+
 const [today] = new Date().toISOString().split('T');
 const sitemap = [];
 
@@ -18,10 +19,33 @@ async function build() {
 
 			// Read Markdown and generate HTML
 			const data = await fs.readFile(`./src/${file}`, 'utf8');
-			const html = generateHtml(data, path);
 
-			// Write HTML to file
-			await fs.writeFile(`./build/${path}.html`, html);
+			const [meta, markdown] = data.split('@@@');
+
+			// Convert Meta tags to object
+			const metaObj = meta.split(/\n/).reduce((acc, el) => {
+				if (el.length) {
+					const [key, value] = el.split('=');
+					acc[key] = value.trim();
+				}
+				return acc;
+			}, {});
+
+			if (metaObj.publish === 'true') {
+				metaObj.url = `${baseUrl}/${path}.html`;
+
+				const html = generateHtml(markdown, metaObj);
+
+				// Push articles to sitemap
+				sitemap.push(
+					`<url><loc>${metaObj.url || ''}</loc><lastmod>${
+						metaObj.date || today
+					}</lastmod></url>`
+				);
+
+				// Write HTML to file
+				await fs.writeFile(`./build/${path}.html`, html);
+			}
 		}
 	}
 	// Write sitemap.xml to file
@@ -35,29 +59,10 @@ async function build() {
 	);
 }
 
-function generateHtml(data, path) {
-	const [meta, markdown] = data.split('@@@');
-
-	// Convert Meta tags to object
-	const metaObj = meta.split(/\n/).reduce((acc, el) => {
-		if (el.length) {
-			const [key, value] = el.split('=');
-			acc[key] = value.trim();
-		}
-		return acc;
-	}, {});
-	metaObj.url = `${baseUrl}/${path}.html`;
-
+function generateHtml(markdown, metaObj) {
 	// Generte meta tags and HTML
 	const metaTags = generateMetaTags(metaObj);
 	const parsed = marked.parse(markdown);
-
-	// Push articles to sitemap
-	sitemap.push(
-		`<url><loc>${metaObj.url || ''}</loc><lastmod>${
-			metaObj.date || today
-		}</lastmod></url>`
-	);
 
 	return `
 		<!DOCTYPE html>

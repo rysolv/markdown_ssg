@@ -1,6 +1,6 @@
 title=Contributing to open source as a beginner [2022]
 description=Making your first open source contribution in 2022. How to pick a project. Command-line and GitHub UI instructions.
-image=https://compassionate-saha-53a9e6.netlify.app/assets/mutombo.gif
+image=https://compassionate-saha-53a9e6.netlify.app/assets/mutombo_small.gif
 date=2022-05-03
 publish=true
 @@@

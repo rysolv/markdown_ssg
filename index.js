@@ -89,6 +89,7 @@ function generateMetaTags({ description, image, title, url }) {
 	const baseMeta = `
 		<!-- Base meta tags -->
 		<meta charset="UTF-8">
+		<meta name="author" content="Tyler Maran">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="description" content="${description || ''}" />
 		<meta name="language" content="english" />

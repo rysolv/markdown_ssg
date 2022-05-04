@@ -1,5 +1,5 @@
 title=Contributing to open source as a beginner [2022]
-description=Making your first open source contribution in 2022. How to pick a project. Command-line and GitHub UI instructions.
+description=Contributing to open source is an awesome way to spend your time. You can make friends, better society, and learn a ton about different codebases. But it can be a bit daunting for beginners.
 image=https://compassionate-saha-53a9e6.netlify.app/assets/mutombo_small.gif
 date=2022-05-03
 publish=true

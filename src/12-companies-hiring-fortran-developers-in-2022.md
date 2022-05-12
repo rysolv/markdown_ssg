@@ -7,7 +7,7 @@ publish=true
 
 ![fortran_gnu](./assets/fortran.png)
 
-# 12 Companies hiring `FORTRAN` Engineers
+# 12 Companies hiring FORTRAN Engineers
 
 Not dead yet! IBM's 1950s _Formula Translator_ (FORTRAN) sits in 30th position on the TIOBE index ([May 2022](https://www.tiobe.com/tiobe-index/)), and has regained some popularity in the High Performance Computing (HPC) world.
 

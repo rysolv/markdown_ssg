@@ -1,6 +1,6 @@
 {
-	"name": "markdown_ssg",
-	"version": "1.0.0",
+	"name": "msgen",
+	"version": "0.0.2",
 	"description": "Stupid simple static site generator with markdown",
 	"main": "index.js",
 	"scripts": {
@@ -12,6 +12,7 @@
 		"type": "git",
 		"url": "git+https://github.com/rysolv/markdown_ssg.git"
 	},
+	"bin": "./index,js",
 	"author": "themanmaran",
 	"license": "MIT",
 	"bugs": {

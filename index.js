@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs').promises;
 const marked = require('marked');
 
@@ -97,4 +99,5 @@ function generateMetaTags({ description, image, title, url }) {
 	`;
 	return baseMeta + openGraph + twitter;
 }
-build();
+
+module.exports = build;

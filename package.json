@@ -12,7 +12,7 @@
 		"type": "git",
 		"url": "git+https://github.com/rysolv/markdown_ssg.git"
 	},
-	"bin": "./index,js",
+	"bin": "./index.js",
 	"author": "themanmaran",
 	"license": "MIT",
 	"bugs": {

@@ -1,6 +1,6 @@
 {
-	"name": "msgen",
-	"version": "0.0.2",
+	"name": "msgo",
+	"version": "0.0.3",
 	"description": "Stupid simple static site generator with markdown",
 	"main": "index.js",
 	"scripts": {
@@ -20,6 +20,7 @@
 	},
 	"homepage": "https://github.com/rysolv/markdown_ssg#readme",
 	"dependencies": {
+		"fs-extra": "^11.1.0",
 		"marked": "^4.0.12"
 	}
 }

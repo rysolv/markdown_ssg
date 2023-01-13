@@ -43,6 +43,45 @@ async function init() {
 	}
 }
 
+async function generateHTML({ config, file, links, subDir }) {
+	console.log('Build script');
+	console.log(file, subDir, config);
+	// Take first part of file name for html name (this will be the url)
+	const [fileName] = file.split('.');
+
+	const path = subDir ? `${subDir}/${fileName}` : `${fileName}`;
+	console.log('path: ', path);
+
+	const data = await fs.readFile(`./src/${path}.md`, 'utf8');
+
+	// Break out metadata at deliminator
+	const [meta, markdown] = data.split('@@@');
+
+	// Convert Meta tags to object
+	const metaObj = meta.split(/\n/).reduce((acc, el) => {
+		if (el.length) {
+			const [key, value] = el.split('=');
+			acc[key] = value.trim();
+		}
+		return acc;
+	}, {});
+	metaObj.siteName = config.name;
+	metaObj.url = `${path}.html`;
+
+	// Store metaObj for each blog
+	// Used to generate index & sitemap
+	links.push(metaObj);
+
+	// Read Markdown and generate HTML
+	const html = parseHTML({ markdown, metaObj, subDir });
+
+	// Create sub directory
+	if (subDir) await fs.mkdir(`./build/${subDir}`);
+
+	// Write HTML to file
+	await fs.writeFile(`./build/${path}.html`, html);
+}
+
 // Compile source folder to HTML
 async function build() {
 	// Check for config file before building
@@ -63,7 +102,7 @@ async function build() {
 	await fs.mkdir('./build/assets');
 
 	// Copy assets into src
-	await fs.copySync(__dirname + '/src/assets', './build/assets', {
+	fs.copySync(__dirname + '/src/assets', './build/assets', {
 		overwrite: true,
 	});
 
@@ -73,45 +112,18 @@ async function build() {
 
 	const src = await fs.readdir('./src');
 
-	for (const folder of src) {
-		const files = await fs.readdir(`./src/${folder}`);
-		for (const file of files) {
-			if (folder !== 'assets') {
-				// Take first part of file name for html name (this will be the url)
-				const [path] = file.split('.');
-
-				const data = await fs.readFile(
-					`./src/${folder}/${file}`,
-					'utf8'
-				);
-
-				// Break out metadata at deliminator
-				const [meta, markdown] = data.split('@@@');
-
-				// Convert Meta tags to object
-				const metaObj = meta.split(/\n/).reduce((acc, el) => {
-					if (el.length) {
-						const [key, value] = el.split('=');
-						acc[key] = value.trim();
-					}
-					return acc;
-				}, {});
-				metaObj.siteName = config.name;
-				metaObj.url = `${folder}/${path}.html`;
-
-				// Store metaObj for each blog
-				// Used to generate index & sitemap
-				links.push(metaObj);
-
-				// Read Markdown and generate HTML
-				const html = parseHTML(markdown, metaObj);
-
-				// Create sub directory
-				await fs.mkdir(`./build/${folder}`);
-
-				// Write HTML to file
-				await fs.writeFile(`./build/${folder}/${path}.html`, html);
+	console.log(src);
+	for (const file of src) {
+		if (fs.lstatSync(`./src/${file}`).isDirectory()) {
+			// Read files from nested directory
+			const subDirFiles = await fs.readdir(`./src/${file}`);
+			console.log('SUBDUIR ', subDirFiles);
+			for (const child of subDirFiles) {
+				generateHTML({ config, file: child, links, subDir: file });
 			}
+		} else {
+			// Create html for root file
+			generateHTML({ config, file, links });
 		}
 	}
 
@@ -120,16 +132,18 @@ async function build() {
 	await fs.writeFile('./build/index.html', indexPage);
 }
 
-function parseHTML(markdown, metaObj) {
+function parseHTML({ markdown, metaObj, subDir }) {
 	// Generte meta tags and HTML
 	const metaTags = generateMetaTags(metaObj);
 	const parsed = marked.parse(markdown);
+
+	const syleLink = subDir ? '../assets/style.css' : './assets/style.css';
 
 	return `
 	<!DOCTYPE html>
 	<html lang="en">
 	${metaTags}
-	<link rel="stylesheet" href="assets/style.css">
+	<link rel="stylesheet" href=${syleLink}>
 	<title>${metaObj.title}</title>
 	</head>
 	<body>${parsed}</body>
@@ -146,7 +160,7 @@ async function generateIndexPage({ config, links }) {
 	return `
 	<!DOCTYPE html>
 	<html lang="en">
-	<link rel="stylesheet" href="assets/style.css">
+	<link rel="stylesheet" href="./assets/style.css">
 	<title>${config.name}</title>
 	</head>
 
@@ -165,8 +179,6 @@ async function generateSiteMap({ config, links }) {
 			metaObj.url || ''
 		}</loc><lastmod>${metaObj.date || today}</lastmod></url>`;
 	});
-
-	console.log(sitemap);
 
 	// Write sitemap.xml to file
 	await fs.writeFile(

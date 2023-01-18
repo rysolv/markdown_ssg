@@ -4,6 +4,20 @@ const fs = require('fs-extra');
 const marked = require('marked');
 const initialConfig = require('./initialConfig.json');
 
+/**
+ * TODO:
+ * 	- add a msgo new command. It will drop a new md file in the current folder with the initial info filled out
+ * 	- update the readme to actually describe how you use the tool
+ *  - open the index.html file after build
+ *  - include a msgo github link at the bottom of the page
+ *  - include the author blurb
+ *  - add a intro blurb for the index page
+ *  - organize the blog links into their subfolders (i.e. indented <li> elements)
+ *  - don't do the 62.5% hack
+ *  - give the headers some color
+ *  - remove console logs
+ */
+
 switch (process.argv[2]) {
 	case 'b':
 	case 'build':
@@ -164,7 +178,9 @@ async function generateIndexPage({ config, links }) {
 	<title>${config.name}</title>
 	</head>
 
-	<body>${blogList.join('')}</body>
+	<body>
+		<ul>${blogList.join('')}</ul>
+	</body>
 	</html>
 	`;
 }

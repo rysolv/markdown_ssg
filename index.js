@@ -58,13 +58,17 @@ async function init() {
 }
 
 async function generateHTML({ config, file, links, subDir }) {
-	console.log('Build script');
-	console.log(file, subDir, config);
+	console.log(`Building ${subDir || ''}/${file}...`);
 	// Take first part of file name for html name (this will be the url)
-	const [fileName] = file.split('.');
-
+	const [fileName, ext] = file.split('.');
 	const path = subDir ? `${subDir}/${fileName}` : `${fileName}`;
-	console.log('path: ', path);
+
+	if (ext !== 'md') {
+		// Copy assets into src
+		return fs.copySync(`./src/${path}.${ext}`, `./build/${file}`, {
+			overwrite: true,
+		});
+	}
 
 	const data = await fs.readFile(`./src/${path}.md`, 'utf8');
 
@@ -126,12 +130,10 @@ async function build() {
 
 	const src = await fs.readdir('./src');
 
-	console.log(src);
 	for (const file of src) {
 		if (fs.lstatSync(`./src/${file}`).isDirectory()) {
 			// Read files from nested directory
 			const subDirFiles = await fs.readdir(`./src/${file}`);
-			console.log('SUBDUIR ', subDirFiles);
 			for (const child of subDirFiles) {
 				generateHTML({ config, file: child, links, subDir: file });
 			}
@@ -144,6 +146,7 @@ async function build() {
 	await generateSiteMap({ config, links });
 	const indexPage = await generateIndexPage({ config, links });
 	await fs.writeFile('./build/index.html', indexPage);
+	console.log('Complete!');
 }
 
 function parseHTML({ markdown, metaObj, subDir }) {
@@ -160,7 +163,11 @@ function parseHTML({ markdown, metaObj, subDir }) {
 	<link rel="stylesheet" href=${syleLink}>
 	<title>${metaObj.title}</title>
 	</head>
-	<body>${parsed}</body>
+	<body>
+	<article>
+	${parsed}
+	</article>
+	</body>
 	</html>
 	`;
 }
@@ -188,7 +195,6 @@ async function generateIndexPage({ config, links }) {
 async function generateSiteMap({ config, links }) {
 	const [today] = new Date().toISOString().split('T');
 
-	console.log(links);
 	// Push articles to sitemap
 	sitemap = links.map((metaObj) => {
 		return `<url><loc>${config.baseUrl}/${

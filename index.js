@@ -186,7 +186,9 @@ async function generateIndexPage({ config, links }) {
 	</head>
 
 	<body>
+	<article>
 		<ul>${blogList.join('')}</ul>
+	</article>
 	</body>
 	</html>
 	`;

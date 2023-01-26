@@ -57,7 +57,7 @@ async function init() {
 	}
 }
 
-async function generateHTML({ config, file, links, subDir }) {
+async function generateHTML({ config, file, footer, links, subDir }) {
 	console.log(`Building ${subDir || ''}/${file}...`);
 	// Take first part of file name for html name (this will be the url)
 	const [fileName, ext] = file.split('.');
@@ -91,7 +91,7 @@ async function generateHTML({ config, file, links, subDir }) {
 	links.push(metaObj);
 
 	// Read Markdown and generate HTML
-	const html = parseHTML({ markdown, metaObj, subDir });
+	const html = parseHTML({ markdown, footer, metaObj, subDir });
 
 	// Create sub directory
 	if (subDir) await fs.mkdir(`./build/${subDir}`);
@@ -112,8 +112,9 @@ async function build() {
 	}
 
 	// Delete existing build directory
-	if (pwd.includes('build'))
+	if (pwd.includes('build')) {
 		await fs.rmdir('./build', { recursive: true, force: true });
+	}
 
 	// Create build directory
 	await fs.mkdir('./build');
@@ -130,26 +131,37 @@ async function build() {
 
 	const src = await fs.readdir('./src');
 
+	console.log('FOOOOOOTER');
+	const footer = await fs.readFile('./src/footer.html');
+
+	console.log(footer);
+
 	for (const file of src) {
 		if (fs.lstatSync(`./src/${file}`).isDirectory()) {
 			// Read files from nested directory
 			const subDirFiles = await fs.readdir(`./src/${file}`);
 			for (const child of subDirFiles) {
-				generateHTML({ config, file: child, links, subDir: file });
+				generateHTML({
+					config,
+					file: child,
+					footer,
+					links,
+					subDir: file,
+				});
 			}
 		} else {
 			// Create html for root file
-			generateHTML({ config, file, links });
+			generateHTML({ config, file, footer, links });
 		}
 	}
 
 	await generateSiteMap({ config, links });
-	const indexPage = await generateIndexPage({ config, links });
+	const indexPage = await generateIndexPage({ config, footer, links });
 	await fs.writeFile('./build/index.html', indexPage);
 	console.log('Complete!');
 }
 
-function parseHTML({ markdown, metaObj, subDir }) {
+function parseHTML({ markdown, metaObj, footer, subDir }) {
 	// Generte meta tags and HTML
 	const metaTags = generateMetaTags(metaObj);
 	const parsed = marked.parse(markdown);
@@ -167,12 +179,15 @@ function parseHTML({ markdown, metaObj, subDir }) {
 	<article>
 	${parsed}
 	</article>
+	<footer>
+	${footer}
+	</footer>
 	</body>
 	</html>
 	`;
 }
 
-async function generateIndexPage({ config, links }) {
+async function generateIndexPage({ config, footer, links }) {
 	// Push links to index page
 	const blogList = links.map((metaObj) => {
 		return `<li><a href="./${metaObj.url}">${metaObj.title}</a> - ${metaObj.description}</li>`;
@@ -189,6 +204,9 @@ async function generateIndexPage({ config, links }) {
 	<article>
 		<ul>${blogList.join('')}</ul>
 	</article>
+	<footer>
+	${footer}
+	</footer>
 	</body>
 	</html>
 	`;

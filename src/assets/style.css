@@ -11,7 +11,7 @@ body {
 article {
 	max-width: 44rem;
 	margin: 2rem auto;
-	padding: 0 1.2rem 5rem;
+	padding: 0 1.2rem 15rem;
 	/* font-size: 1.2rem; */
 	font: 1.1rem/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 		'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
@@ -30,6 +30,12 @@ blockquote {
 code {
 	color: green;
 	font-weight: bold;
+}
+
+footer {
+	bottom: 0;
+	position: absolute;
+	width: 100%;
 }
 
 h1,

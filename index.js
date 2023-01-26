@@ -131,10 +131,10 @@ async function build() {
 
 	const src = await fs.readdir('./src');
 
-	console.log('FOOOOOOTER');
-	const footer = await fs.readFile('./src/footer.html');
-
-	console.log(footer);
+	let footer = '';
+	if (src.includes('footer.html')) {
+		footer = await fs.readFile('./src/footer.html');
+	}
 
 	for (const file of src) {
 		if (fs.lstatSync(`./src/${file}`).isDirectory()) {

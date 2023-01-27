@@ -11,11 +11,12 @@ const initialConfig = require('./initialConfig.json');
  *  - open the index.html file after build
  *  - include a msgo github link at the bottom of the page
  *  - include the author blurb
- *  - add a intro blurb for the index page
+ * 			- Similar to the header / footer html. Allow an html snippet named author.html
+ *  - add the ability for the user to add a header.html file
  *  - organize the blog links into their subfolders (i.e. indented <li> elements)
- *  - don't do the 62.5% hack
+ *  - add publish date to the index page
  *  - give the headers some color
- *  - remove console logs
+ *  - better styling on the index page links. Possibly with a title
  */
 
 switch (process.argv[2]) {
@@ -141,7 +142,7 @@ async function build() {
 			// Read files from nested directory
 			const subDirFiles = await fs.readdir(`./src/${file}`);
 			for (const child of subDirFiles) {
-				generateHTML({
+				await generateHTML({
 					config,
 					file: child,
 					footer,
@@ -151,7 +152,7 @@ async function build() {
 			}
 		} else {
 			// Create html for root file
-			generateHTML({ config, file, footer, links });
+			await generateHTML({ config, file, footer, links });
 		}
 	}
 
@@ -217,16 +218,20 @@ async function generateSiteMap({ config, links }) {
 
 	// Push articles to sitemap
 	sitemap = links.map((metaObj) => {
-		return `<url><loc>${config.baseUrl}/${
-			metaObj.url || ''
-		}</loc><lastmod>${metaObj.date || today}</lastmod></url>`;
+		return `
+			<url>
+				<loc>${config.baseUrl}/${metaObj.url || ''}</loc>
+				<lastmod>${metaObj.date || today}</lastmod>
+			</url>
+		`;
 	});
 
 	// Write sitemap.xml to file
 	await fs.writeFile(
 		`./build/sitemap.xml`,
 		[
-			'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.google.com/schemas/sitemap/0.84 https://www.google.com/schemas/sitemap/0.84/sitemap.xsd">',
+			'<?xml version="1.0" encoding="UTF-8"?>',
+			'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
 			...sitemap,
 			'</urlset>',
 		].join('')

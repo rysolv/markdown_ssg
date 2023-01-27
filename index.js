@@ -226,6 +226,14 @@ async function generateSiteMap({ config, links }) {
 		`;
 	});
 
+	// Include index page in sitemap
+	sitemap.unshift(`
+		<url>
+			<loc>${config.baseUrl}</loc>
+			<lastmod>${today}</lastmod>
+		</url>
+	`);
+
 	// Write sitemap.xml to file
 	await fs.writeFile(
 		`./build/sitemap.xml`,

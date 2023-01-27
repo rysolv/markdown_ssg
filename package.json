@@ -1,6 +1,6 @@
 {
 	"name": "msgo",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "Stupid simple static site generator with markdown",
 	"main": "index.js",
 	"scripts": {

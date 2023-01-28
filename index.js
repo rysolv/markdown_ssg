@@ -194,13 +194,21 @@ async function generateIndexPage({ config, footer, links }) {
 		return `<li><a href="./${metaObj.url}">${metaObj.title}</a> - ${metaObj.description}</li>`;
 	});
 
+	const meta = generateMetaTags({
+		description: config.description,
+		image: config.baseUrl + '/' + config.image,
+		siteName: config.name,
+		title: config.name,
+		url: config.baseUrl,
+	});
+
 	return `
 	<!DOCTYPE html>
 	<html lang="en">
 	<link rel="stylesheet" href="./assets/style.css">
+	${meta}
 	<title>${config.name}</title>
 	</head>
-
 	<body>
 	<article>
 		<ul>${blogList.join('')}</ul>

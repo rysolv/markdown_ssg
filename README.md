@@ -1,10 +1,26 @@
 ![Markdown to HTMl](./src/assets/markdown-to-html.png)
 
-# An ultra minimal static site generator ([live preview](https://compassionate-saha-53a9e6.netlify.app/markdown-static-site-generator))
+# MSGO
+
+## An ultra minimal static site generator [[live preview](https://compassionate-saha-53a9e6.netlify.app/markdown-static-site-generator)]
 
 I needed to set up a static site generator for some blogging. And while plenty of these exist ([Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.com/), [etc.](https://jamstack.org/generators/)), none were quite as minimal as I liked. So I built my own!
 
-It uses one dependency ([marked](https://www.npmjs.com/package/marked)), so not entirely minimal. But all the build logic lives in 100 lines. With half of the logic dedicated to the meta tags and sitmap generation.
+## Getting Started
+
+Install the library `msgo`
+
+```
+npm i msgo
+```
+
+Initialize the folder structure
+
+```
+msgo init
+```
+
+This will create file structure that looks like this:
 
 ```
 🗀 build
@@ -16,15 +32,7 @@ It uses one dependency ([marked](https://www.npmjs.com/package/marked)), so not 
 index.js
 ```
 
-## Getting Started
-
--   Clone https://github.com/rysolv/markdown_ssg
--   Create a new markdown file (or edit the `getting-started.md`) in the `src` folder
--   Include any images you want to use in the `src/assets` folder
--   Run `npm run build`
-
-This creates a `/build` directory, and populates it with HTML, CSS, and images from the `src` directory.
-The script also creates standard metatags for social links (native, OpenGraph, Twitter) and generates a `sitemap.xml`
+To build the sample app, run `msgo build`. This creates a `/build` directory, and populates it with HTML, CSS, and images from the `src` directory. The script also creates standard metatags for social links (native, OpenGraph, Twitter) and generates a `sitemap.xml`.
 
 ## Deploying to Netlify
 
